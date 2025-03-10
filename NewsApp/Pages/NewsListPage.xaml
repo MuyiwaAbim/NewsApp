@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="NewsApp.Pages.NewsListPage">
+    <StackLayout Padding="10">
+        <Label x:Name="LblCategory" FontSize="Title" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <CollectionView x:Name="CvNewsList"
+                        SelectionMode="Single"
+                        SelectionChanged="CvNewsList_SelectionChanged">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="5">
+                        <Grid ColumnDefinitions="100, *">
+                            <Image Grid.Column="0" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" Source="{Binding Image}"/>
+                            <Label Grid.Column="1" Text="{Binding Title}" FontSize="Medium" VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
